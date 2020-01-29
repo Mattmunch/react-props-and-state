@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './Form.css';
 
 const Form = ({ onReset, onSubmit, onChange, inputs }) => (
-  <>
-    <form onSubmit={onSubmit}>
+  <section className={styles.formSection}>
+    <form className={styles.form} onSubmit={onSubmit}>
       <input value={inputs['0']} name="0" onChange={onChange} type="text" placeholder="adjective" />
       <input value={inputs['1']} onChange={onChange} name="1" type="text" placeholder="noun" />
       <input value={inputs['2']} onChange={onChange} name="2" type="text" placeholder="verb, past tense" />
@@ -19,7 +20,7 @@ const Form = ({ onReset, onSubmit, onChange, inputs }) => (
       <button>Create Madlib</button>
     </form>
     <button onClick={onReset}>Clear Entries</button>
-  </>
+  </section>
 );
 
 Form.propTypes = {
