@@ -6,7 +6,19 @@ export default class Madlib extends Component{
   state = {
     showResult: false,
     words: [],
-    inputs:[]
+    inputs: {
+      '0': '',
+      '1': '',
+      '2': '',
+      '3': '',
+      '4': '',
+      '5': '',
+      '6': '',
+      '7': '',
+      '8': '',
+      '9': '',
+      '10': '',
+      '11': '' }
   }
 
   toggleResult = () =>
@@ -16,7 +28,6 @@ export default class Madlib extends Component{
     event.preventDefault();
     this.toggleResult();
     this.setState(state => ({
-      inputs:{},
       words: [
         state.inputs['0'],
         state.inputs['1'],
@@ -32,6 +43,7 @@ export default class Madlib extends Component{
         state.inputs['11']
       ]
     }));
+    this.handleReset();
   }
   handleChange = ({ target }) => {
     this.setState(state => ({
@@ -39,12 +51,29 @@ export default class Madlib extends Component{
       inputs:{ ...state.inputs,  [target.name]: target.value }
     }));
   }
+  handleReset = () => {
+    this.setState(state => ({
+      ...state, inputs: {
+        '0': '',
+        '1': '',
+        '2': '',
+        '3': '',
+        '4': '',
+        '5': '',
+        '6': '',
+        '7': '',
+        '8': '',
+        '9': '',
+        '10': '',
+        '11': ''
+      } }));
+  }
   
   render() {
     const { showResult } = this.state;
     return (
       <>
-        {!showResult && <Form onChange={this.handleChange} onSubmit={this.handleSubmit} />}
+        {!showResult && <Form onReset={this.handleReset} inputs={this.state.inputs} onChange={this.handleChange} onSubmit={this.handleSubmit} />}
         {showResult && <Result words={this.state.words} closeResult={this.toggleResult} />}
       </>
     );
