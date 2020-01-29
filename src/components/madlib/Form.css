@@ -1,0 +1,26 @@
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    input {
+        width: 125px;
+        height: 25px;
+        margin: 10px;
+        font-size: 13pt;
+    }
+}
+.formSection {
+    button{
+        height: 40px;
+        width: 120px;
+        background-color: darkslategray;
+        border-radius: 8px;
+        margin-left: 10px;
+        margin-bottom: 10px;
+        font-size: 12pt;
+        color: aliceblue
+
+    }
+}
